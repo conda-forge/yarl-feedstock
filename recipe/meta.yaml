@@ -26,6 +26,7 @@ requirements:
     - expandvars
     - tomli  # [py<311]
     - cython
+    - setuptools
   run:
     - python
     - multidict >=4.0
