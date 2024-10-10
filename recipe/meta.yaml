@@ -38,6 +38,7 @@ test:
     - tests
   requires:
     - pytest
+    - propcache
     - pip
   commands:
     - py.test tests
