@@ -38,6 +38,7 @@ test:
     - tests
   requires:
     - pytest
+    - pytest-codspeed
     - hypothesis >=6.0
     - pip
   commands:
