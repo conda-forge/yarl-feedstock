@@ -1,5 +1,5 @@
 {% set name = "yarl" %}
-{% set version = "1.15.3" %}
+{% set version = "1.15.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: fbcff47f8ba82467f203037f7a30decf5c724211b224682f7236edb0dcbb5b95
+  sha256: 8249147ee81c1cf4d1dc6f26ba28a1b9d92751529f83c308ad02164bb93abd0d
 
 build:
   number: 0
