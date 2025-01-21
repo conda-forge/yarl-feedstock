@@ -30,7 +30,7 @@ requirements:
     - python                      # [not use_noarch]
     - pip
     - expandvars
-    - tomli  # [py<311]
+    - tomli  # [py<311 or use_noarch]
     - cython
     - setuptools
   run:
