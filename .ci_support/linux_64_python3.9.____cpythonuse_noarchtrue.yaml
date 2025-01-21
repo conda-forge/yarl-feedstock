@@ -19,6 +19,10 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.11.* *_cpython
+- 3.9.* *_cpython
+python_min:
+- '3.9'
 target_platform:
 - linux-64
+use_noarch:
+- 'true'
