@@ -10,8 +10,13 @@ source:
   sha256: ac1801c45cbf77b6c99242eeff4fffb5e4e73a800b5c4ad4fc0be5def634d2e1
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 1
+  noarch: python       # [use_noarch]
+  track_features:      # [use_noarch]
+    - yarl_no_compile  # [use_noarch]
+  script:
+    - {{ PYTHON }} -m pip install . --no-deps -vv                                      # [not use_noarch]
+    - {{ PYTHON }} -m pip install . --no-deps -vv  --config-settings=pure-python=true  # [use_noarch]
 
 requirements:
   build:
@@ -21,14 +26,16 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - python
+    - python {{ python_min }}     # [use_noarch]
+    - python                      # [not use_noarch]
     - pip
     - expandvars
-    - tomli  # [py<311]
+    - tomli
     - cython
     - setuptools
   run:
-    - python
+    - python >={{ python_min }}   # [use_noarch]
+    - python                      # [not use_noarch]
     - multidict >=4.0
     - idna >=2.0
     - propcache >=0.2.1
@@ -37,13 +44,18 @@ test:
   source_files:
     - tests
   requires:
+    - python {{ python_min }}     # [use_noarch]
+    - python                      # [not use_noarch]
     - pytest
     - pytest-codspeed
     - hypothesis >=6.0
     - pip
+  imports:
+    - yarl
   commands:
-    - py.test tests
     - pip check
+    - export YARL_NO_EXTENSIONS=1   # [use_noarch]
+    - py.test tests
 
 about:
   home: https://github.com/aio-libs/yarl
