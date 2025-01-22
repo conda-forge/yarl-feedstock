@@ -50,9 +50,12 @@ test:
     - pytest-codspeed
     - hypothesis >=6.0
     - pip
+  imports:
+    - yarl
   commands:
-    - py.test tests
     - pip check
+    - export YARL_NO_EXTENSIONS=1   # [use_noarch]
+    - py.test tests
 
 about:
   home: https://github.com/aio-libs/yarl
