@@ -1,5 +1,5 @@
 {% set name = "yarl" %}
-{% set version = "1.18.3" %}
+{% set version = "1.19.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ac1801c45cbf77b6c99242eeff4fffb5e4e73a800b5c4ad4fc0be5def634d2e1
+  sha256: 01e02bb80ae0dbed44273c304095295106e1d9470460e773268a27d11e594892
 
 build:
-  number: 1
-  noarch: python       # [use_noarch]
-  track_features:      # [use_noarch]
+  number: 0
+  noarch: python  # [use_noarch]
+  track_features:   # [use_noarch]
     - yarl_no_compile  # [use_noarch]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv                                      # [not use_noarch]
