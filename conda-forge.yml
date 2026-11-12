@@ -1,6 +1,6 @@
 bot:
-  inspection: update-grayskull
   automerge: true
+  inspection: update-grayskull
 build_platform:
   linux_ppc64le: linux_64
 conda_build:
@@ -9,10 +9,10 @@ conda_forge_output_validation: true
 github:
   branch_name: main
   tooling_branch_name: main
-test: native_and_emulated
 linter:
   skip:
-    - lint_noarch_selectors
+  - lint_noarch_selectors
 provider:
   linux_aarch64: default
   osx_arm64: default
+test: native_and_emulated
